@@ -1,0 +1,19 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "create:flour"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "results": [
+    {
+      "item": "createfood:cake_dough"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "C"
+  ],
+  "key": {
+    "#": {
+      "item": "createfood:cake_chocolate"
+    },
+    "C": {
+      "item": "minecraft:sweetberry"
+    }
+  },
+  "result": {
+    "item": "createfood:cake_chocolate_berry",
+    "count": 1
+  }
+}

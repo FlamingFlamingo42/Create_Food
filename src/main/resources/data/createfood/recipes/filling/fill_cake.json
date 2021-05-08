@@ -1,0 +1,17 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "createfood:cake_base_baked"
+    },
+    {
+      "fluidTag": "forge:milk",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "item": "createfood:cake_plain"
+    }
+  ]
+}

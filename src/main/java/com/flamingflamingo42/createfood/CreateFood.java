@@ -1,9 +1,12 @@
 package com.flamingflamingo42.createfood;
 
+import com.flamingflamingo42.createfood.setup.ModItems;
+import com.flamingflamingo42.createfood.setup.Registration;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -19,21 +22,32 @@ import org.apache.logging.log4j.Logger;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod("createfood")
+@Mod(CreateFood.MOD_ID)
 public class CreateFood
 {
+    public static final String MOD_ID = "createfood";
+
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
     public CreateFood() {
+
+
+
         // Register the setup method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+
         // Register the enqueueIMC method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
         // Register the processIMC method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         // Register the doClientStuff method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        bus.addListener(this::setup);
+
+        ModItems.ITEMS.register(bus);
+        Registration.register();
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

@@ -1,0 +1,17 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "createfood:cake_base_baked"
+    },
+    {
+      "fluid": "create:chocolate",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "item": "createfood:cake_chocolate"
+    }
+  ]
+}

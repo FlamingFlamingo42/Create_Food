@@ -1,0 +1,13 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "createfood:cake_dough"
+    }
+  ],
+  "results": [
+    {
+      "item": "createfood:cake_base"
+    }
+  ]
+}
