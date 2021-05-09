@@ -4,6 +4,7 @@ import com.flamingflamingo42.createfood.setup.ModItems;
 import com.flamingflamingo42.createfood.setup.Registration;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -26,7 +27,9 @@ import java.util.stream.Collectors;
 public class CreateFood
 {
     public static final String MOD_ID = "createfood";
-
+    public static ResourceLocation RL (String path) {
+        return new ResourceLocation(MOD_ID, path);
+    }
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
@@ -46,7 +49,6 @@ public class CreateFood
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(this::setup);
 
-        ModItems.ITEMS.register(bus);
         Registration.register();
 
         // Register ourselves for server and other game events we are interested in
