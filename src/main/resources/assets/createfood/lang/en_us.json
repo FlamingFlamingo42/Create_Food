@@ -4,10 +4,12 @@
   "item.createfood.cake_base_baked": "Cake Base",
   "item.createfood.cake_plain": "Plain Cake",
   "item.createfood.cake_chocolate": "Chocolate Cake",
+  "item.createfood.cake_chocolate_berry": "Chocolate Berry Cake",
   "item.createfood.cake_shadowsteel": "Shadowsteel Cake",
   "item.createfood.cake_radiance": "Refined Radiance Cake",
   "item.createfood.bucket_cream": "Cream Bucket",
   "fluid.createfood.cream": "Cream",
+  "itemGroup.createfood": "Create: Food",
 
   "item.createfood.burger_bun": "Burger Bun",
   "item.createfood.burger_patty": "Beef Patty",

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "minecraft:block/spinach_stage0"
+    },
+    "age=1": {
+      "model": "minecraft:block/spinach_stage1"
+    }
+  }
+}
