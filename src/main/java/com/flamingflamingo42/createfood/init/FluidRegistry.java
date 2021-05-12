@@ -9,12 +9,15 @@ import net.minecraft.block.material.Material;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.tags.ITag;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import static net.minecraft.tags.FluidTags.makeWrapperTag;
 
 
 @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
@@ -23,6 +26,10 @@ public class FluidRegistry {
     public static FluidCream.Source cream;
     public static FluidCream.Flowing cream_flow;
 
+    public static class Tags {
+        public static final ITag.INamedTag<Fluid> CREAM = makeWrapperTag("cream");
+    }
+
 
     //register
     @SubscribeEvent
@@ -30,7 +37,7 @@ public class FluidRegistry {
         if (!event.getName().equals(ForgeRegistries.FLUIDS.getRegistryName()))
             return;
 
-        cream_flow = register("cream_flow", new FluidCream.Flowing());
+        cream_flow = register("cream_flow",new FluidCream.Flowing());
         cream = register("cream", new FluidCream.Source());
 
     }

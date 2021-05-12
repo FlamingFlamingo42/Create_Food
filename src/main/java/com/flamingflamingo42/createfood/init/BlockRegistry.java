@@ -1,6 +1,7 @@
 package com.flamingflamingo42.createfood.init;
 
 import com.flamingflamingo42.createfood.CreateFood;
+import com.flamingflamingo42.createfood.fluids.FluidCream;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.FlowingFluidBlock;
@@ -30,7 +31,7 @@ public class BlockRegistry {
             return;
 
 
-            cream = register("cream", new FlowingFluidBlock(() -> FluidRegistry.cream, Block.Properties.create(Material.WATER).doesNotBlockMovement()));
+            cream = register("cream", new FlowingFluidBlock(() -> FluidRegistry.cream, Block.Properties.create(Material.WATER).doesNotBlockMovement().noDrops()));
 
     }
 

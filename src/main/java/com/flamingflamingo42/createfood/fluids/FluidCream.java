@@ -1,5 +1,6 @@
 package com.flamingflamingo42.createfood.fluids;
 
+
 import com.flamingflamingo42.createfood.CreateFood;
 import com.flamingflamingo42.createfood.init.BlockRegistry;
 import com.flamingflamingo42.createfood.init.FluidRegistry;
@@ -16,7 +17,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
-import net.minecraftforge.common.extensions.IForgeFluidState;
 import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 
@@ -43,8 +43,8 @@ public abstract class FluidCream extends FlowingFluid {
     }
 
     @Override
-    protected int getSlopeFindDistance(IWorldReader p_185698_1_) {
-        return 8;
+    protected int getSlopeFindDistance(IWorldReader reader) {
+        return 4;
     }
 
     @Override
@@ -58,53 +58,50 @@ public abstract class FluidCream extends FlowingFluid {
     }
 
     @Override
-    protected boolean canDisplace(FluidState state, IBlockReader iblock, BlockPos p_215665_3_, Fluid p_215665_4_, Direction p_215665_5_) {
-        return false;
+    protected boolean canDisplace(FluidState state, IBlockReader reader, BlockPos pos, Fluid fluid, Direction direction) {
+        return direction == Direction.DOWN && !fluid.isIn(FluidRegistry.Tags.CREAM);
     }
 
     @Override
-    public int getTickRate(IWorldReader p_205569_1_) {
-        return 20;
+    public int getTickRate(IWorldReader state) {
+        return 40;
     }
-
-
 
     @Override
     protected float getExplosionResistance() {
-        return 0;
+        return 100.0f;
     }
 
     @Override
     protected BlockState getBlockState(FluidState state) {
         return BlockRegistry.cream.getDefaultState().with(FlowingFluidBlock.LEVEL, Integer.valueOf(getLevelFromState(state)));
     }
-
-
     @Override
-    protected FluidAttributes createAttributes(){
-        return FluidAttributes.builder(CreateFood.RL("block/fluid/cream_still"),CreateFood.RL("block/fluid/cream_flow"))
-                .viscosity(10000)
-                .density(800)
-                .translationKey("block.createfood.cream")
-                .build(this);
+    protected FluidAttributes createAttributes() {
+        return FluidAttributes.builder(CreateFood.RL("block/fluid/cream_still"), CreateFood.RL("block/fluid/cream_flow")).build(this);
     }
 
-    public static class Flowing extends  FluidCream{
+    @Override
+    public boolean isEquivalentTo(Fluid fluidIn){
+        return fluidIn ==FluidRegistry.cream || fluidIn==FluidRegistry.cream_flow;
+    }
 
-        @Override
-        protected void fillStateContainer(StateContainer.Builder<Fluid, FluidState> builder){
+
+    public static class Flowing extends FluidCream{
+
+        protected void fillStateContainer(StateContainer.Builder<Fluid, FluidState> builder) {
             super.fillStateContainer(builder);
+            CreateFood.LOGGER.debug(LEVEL_1_8);
             builder.add(LEVEL_1_8);
         }
 
         @Override
-        public boolean isSource(FluidState state) {
+        public boolean isSource(FluidState p_207193_1_) {
             return false;
         }
 
         @Override
         public int getLevel(FluidState state) {
-            CreateFood.LOGGER.debug(state.get(FluidCream.LEVEL_1_8));
             return state.get(FluidCream.LEVEL_1_8);
         }
     }
@@ -112,12 +109,12 @@ public abstract class FluidCream extends FlowingFluid {
     public static class Source extends FluidCream {
 
         @Override
-        public boolean isSource(FluidState state) {
+        public boolean isSource(FluidState p_207193_1_) {
             return true;
         }
 
         @Override
-        public int getLevel(FluidState state) {
+        public int getLevel(FluidState p_207192_1_) {
             return 8;
         }
     }
