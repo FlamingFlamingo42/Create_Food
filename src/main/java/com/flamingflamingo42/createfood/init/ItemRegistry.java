@@ -1,6 +1,7 @@
 package com.flamingflamingo42.createfood.init;
 
 import com.flamingflamingo42.createfood.CreateFood;
+import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -22,7 +23,7 @@ public class ItemRegistry {
     public static Item cake_radiance;
     public static Item cake_shadowsteel;
 
-    public static Item seed_spinach;
+    public static Item seed_coffee;
     public static Item bucket_cream;
 
     //register
@@ -43,6 +44,8 @@ public class ItemRegistry {
 
        bucket_cream = register("bucket_cream", new BucketItem(()->FluidRegistry.cream, new Item.Properties().group(CreateFood.ITEM_GROUP)
                         .maxStackSize(1)));
+
+       seed_coffee = register("seed_coffee",new BlockNamedItem(BlockRegistry.crop_coffee, new Item.Properties().group(CreateFood.ITEM_GROUP)));
 
         CreateFood.LOGGER.info("Registration Finished");
     }

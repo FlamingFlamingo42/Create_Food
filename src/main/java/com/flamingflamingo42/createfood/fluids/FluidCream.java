@@ -1,6 +1,5 @@
 package com.flamingflamingo42.createfood.fluids;
 
-
 import com.flamingflamingo42.createfood.CreateFood;
 import com.flamingflamingo42.createfood.init.BlockRegistry;
 import com.flamingflamingo42.createfood.init.FluidRegistry;
@@ -18,7 +17,6 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraftforge.fluids.FluidAttributes;
-import net.minecraftforge.fluids.ForgeFlowingFluid;
 
 public abstract class FluidCream extends FlowingFluid {
 

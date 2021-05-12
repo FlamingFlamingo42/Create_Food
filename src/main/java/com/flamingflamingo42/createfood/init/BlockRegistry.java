@@ -1,6 +1,7 @@
 package com.flamingflamingo42.createfood.init;
 
 import com.flamingflamingo42.createfood.CreateFood;
+import com.flamingflamingo42.createfood.crops.CropCoffee;
 import com.flamingflamingo42.createfood.fluids.FluidCream;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -23,6 +24,7 @@ public class BlockRegistry {
 
     //Blocklist
     public static Block cream;
+    public static Block crop_coffee;
 
     //register
     @SubscribeEvent
@@ -33,6 +35,7 @@ public class BlockRegistry {
 
             cream = register("cream", new FlowingFluidBlock(() -> FluidRegistry.cream, Block.Properties.create(Material.WATER).doesNotBlockMovement().noDrops()));
 
+            crop_coffee = register("crop_coffee", new CropCoffee(Block.Properties.create(Material.PLANTS).hardnessAndResistance(0).doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
     }
 
 
