@@ -1,10 +1,14 @@
 package com.flamingflamingo42.createfood;
 
+import com.flamingflamingo42.createfood.init.BlockRegistry;
 import com.flamingflamingo42.createfood.init.ItemRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.scoreboard.ScoreCriteria;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -42,15 +46,18 @@ public class CreateFood
     }
 
 
-
-
     public CreateFood() {
 
 
         //IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         //bus.addListener(this::setup);
-
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         MinecraftForge.EVENT_BUS.register(this);
     }
+
+    private void clientSetup(final FMLClientSetupEvent event){
+        RenderTypeLookup.setRenderLayer(BlockRegistry.coffee, RenderType.getCutout());
+    }
+
 
 }

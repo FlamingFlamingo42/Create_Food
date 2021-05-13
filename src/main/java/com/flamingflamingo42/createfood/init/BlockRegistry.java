@@ -1,12 +1,9 @@
 package com.flamingflamingo42.createfood.init;
 
 import com.flamingflamingo42.createfood.CreateFood;
+import com.flamingflamingo42.createfood.blocks.CustomCake;
 import com.flamingflamingo42.createfood.crops.CropCoffee;
-import com.flamingflamingo42.createfood.fluids.FluidCream;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.FlowingFluidBlock;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -24,7 +21,8 @@ public class BlockRegistry {
 
     //Blocklist
     public static Block cream;
-    public static Block crop_coffee;
+    public static Block coffee;
+    public static Block cake_plain;
 
     //register
     @SubscribeEvent
@@ -35,7 +33,9 @@ public class BlockRegistry {
 
             cream = register("cream", new FlowingFluidBlock(() -> FluidRegistry.cream, Block.Properties.create(Material.WATER).doesNotBlockMovement().noDrops()));
 
-            crop_coffee = register("crop_coffee", new CropCoffee(Block.Properties.create(Material.PLANTS).hardnessAndResistance(0).doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
+            coffee = register("coffee", new CropCoffee(Block.Properties.create(Material.PLANTS).hardnessAndResistance(0).doesNotBlockMovement().tickRandomly().sound(SoundType.CROP)));
+
+            cake_plain = register("cake_plain", new CustomCake(AbstractBlock.Properties.create(Material.CAKE).hardnessAndResistance(0.5F).sound(SoundType.CLOTH),5,7));
     }
 
 

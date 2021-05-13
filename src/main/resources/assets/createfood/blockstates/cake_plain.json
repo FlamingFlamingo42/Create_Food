@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "bites=0": {
+      "model": "createfood:block/cake_plain"
+    },
+    "bites=1": {
+      "model": "createfood:block/cake_plain_slice1"
+    },
+    "bites=2": {
+      "model": "createfood:block/cake_plain_slice2"
+    },
+    "bites=3": {
+      "model": "createfood:block/cake_plain_slice3"
+    },
+    "bites=4": {
+      "model": "createfood:block/cake_plain_slice4"
+    },
+    "bites=5": {
+      "model": "createfood:block/cake_plain_slice5"
+    },
+    "bites=6": {
+      "model": "createfood:block/cake_plain_slice6"
+    }
+  }
+}

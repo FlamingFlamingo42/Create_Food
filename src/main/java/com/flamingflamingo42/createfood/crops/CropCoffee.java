@@ -27,7 +27,7 @@ public class CropCoffee extends CropsBlock {
     }
 
     protected IItemProvider getSeedsItem(){
-        return ItemRegistry.seed_coffee;
+        return ItemRegistry.coffee;
     }
 
     @Override
